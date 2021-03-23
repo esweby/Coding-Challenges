@@ -1,15 +1,6 @@
-function duplicateCount(text){
-    if(text.length === 0) return 0;
-    let duplicateCounter = 0
-    const uniqueList = [];
-    const arr = text.toLowerCase().split('');
-    for(let i = 0; i < text.length; i++) {
-        const curr = arr[i];
-        if(arr.slice(i + 1, arr.length).indexOf(curr) >= 0 && uniqueList.indexOf(curr) < 0) {
-            uniqueList.push(curr);
-            duplicateCounter++;
-        }
-    }
-    return duplicateCounter;
-}
+const n = [3,4,6,5];
+const m = [9,0,2,5,8,3];
+const k = 5;
 
+const maxNum = (arr, control) => Number(arr.sort((a, b) => a - b).reverse().splice(0, control).join(''));
+const result = maxNum([...n, ...m], k);
