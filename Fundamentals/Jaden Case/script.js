@@ -12,3 +12,5 @@ String.prototype.toJadenCase = function () {
 };
 str = `How can mirrors be real if our eyes aren't real`.toJadenCase()
 console.log(str);
+
+// return this.replace(/(^|\s)[a-z]/g, function(x){ return x.toUpperCase(); });
