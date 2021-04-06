@@ -57,7 +57,7 @@
                 const next = index === originalTarget ? originalTarget - 1 : index; // figure out if the index is the one to use or it is the original index
                 const traverseArr = []; // this is the array to work from for the traverse method
                 for(let i = next; i > next - 3 && i > 0; i--) traverseArr.push(i); // push a number into the array
-                const nextArr = [];
+
                 for(let res = 0; res < traverseArr.length; res++) {
                     // Work out details from the current item
                     const currArrItem = traverseArr[res];
