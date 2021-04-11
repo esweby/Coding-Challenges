@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Look for a password where it starts with a lower case letter or an upper case letter, it contains a number
+        const validate = password => {
+            const testOne = /^[a-zA-Z0-9]+$/.test(password);
+            const testTwo = /[a-z]+/.test(password);
+            const testThree = /[A-Z]+/.test(password);
+            const testFour = /[0-9]+/.test(password);
+
+            return testOne && testTwo && testThree && testFour ? true : false;
+            
+        } 
+
+        /*
+        Other solutions include:
+
+        return  /^[A-Za-z0-9]{6,}$/.test(password) &&
+          /[A-Z]+/           .test(password) &&
+          /[a-z]+/           .test(password) &&
+          /[0-9]+/           .test(password) ;
+
+        return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$/.test(password);
+
+        return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{6,}$/.test(password);
+
+        */
+       /**
+  * positive lookahead is used here to ensure that at least one of each character set is available
+  * you need to allow every character (.*) before your lookahead character set, 
+  * except you want to ensure the expression starts with i.e. a lowercase character.
+  * Each lookahead basically says "Is there <anything> and 1 or more of <character set> in the following expression?"
+  * The speciality here is that lookaheads wont touch the matching group so that you can check for 6 or more
+  * characters afterwards. The 6 or more characters will simply not match if they don't fulfill every lookahead.
+  **/
+  // return /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)[A-Za-z0-9]{6,}$/.test(password);
+       
+
+
+        console.log(validate('djI38D55')); // true
+        console.log(validate('a2.d412')); // false
+        console.log(validate('JHD5FJ53')); // false
+        console.log(validate('!fdjn345')); // false
+        console.log(validate('jfkdfj3j')); // false
+        console.log(validate('123')); // false
+        console.log(validate('abc')); // false
+        console.log(validate('Password123')); // true
+    </script>
+</body>
+</html>

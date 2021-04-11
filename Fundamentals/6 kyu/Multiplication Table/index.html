@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /* 
+            Your task, is to create NxN multiplication table, of size provided in parameter.
+
+            for example, when given size is 3:
+
+            1 2 3
+            2 4 6
+            3 6 9
+            for given example, the return value should be: [[1,2,3],[2,4,6],[3,6,9]]
+        */
+        const multiplicationTable = function(size) {
+            const result = [];
+            for(let i = 0; i < size; i++) result.push([]);
+            result.forEach((curr, index) => {
+                const multiplyBy = index + 1;
+                for(let i = 1; i < size + 1; i++) curr.push(i * multiplyBy);
+            });
+            return result;
+        }
+       console.log(multiplicationTable(3)) // [[1,2,3], [2,4,6], [3,6,9]]
+    </script>
+</body>
+</html>
