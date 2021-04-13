@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+
+            domainName("http://github.com/carbonfive/raygun") == "github" 
+            domainName("http://www.zombie-bites.com") == "zombie-bites"
+            domainName("https://www.cnet.com") == "cnet"
+        */
+        function domainName(url) {
+            return url.match(/(?<=(http|https):\/\/)(?!www\.)[\w-]{3,}(?=\.)|(?<=www\.)[\w-]{3,}(?=\.)|[\w-]{4,}(?=\.[\w])/g)[0];
+        }
+        console.log(domainName("http://github.com/carbonfive/raygun"));
+        console.log(domainName("http://www.zombie-bites.com"));
+        console.log(domainName("https://www.cnet.com"));
+        console.log(domainName("www.xakep.ru"));
+        console.log(domainName("https://youtube.com"));
+
+        // Other solutions
+        // url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
+        // url.replace(/(https?:\/\/)?(www\.)?/, '').split('.')[0]
+    </script>
+</body>
+</html>
