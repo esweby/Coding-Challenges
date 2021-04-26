@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function mergesorted(a, b) {
+            if([...a, ...b].length === 1) return [...a, ...b];
+            return sort([...a, ...b]);
+        };
+
+        const sort = (arr) => {
+            const testArr = arr; // Set up a test array so we dont alter the original results
+            for (let up = 0; up < testArr.length; up++) { // go up the array
+                // makes it read cleaner
+                let a = testArr[up];
+                let b = testArr[up + 1];
+                if (a - b >= 0) { // check if b should be before a 
+                    testArr.splice(up, 2, b, a); // reverse their positions
+                    for(let down = up; down > 0; down--) { // do down the array
+                        let a = testArr[down - 1];
+                        let b = testArr[down];
+                        if(a - b >= 0) {
+                            testArr.splice(down - 1, 2, b, a);
+                        } else { 
+                            break; // break the loop if it can go down no further
+                        }
+                    }
+                }
+            }
+            return testArr;
+        }
+        // End of recursive sort function
+        console.log(mergesorted([1,2],[3,4]));
+        console.log(mergesorted([1,2],[3]));
+        console.log(mergesorted([1],[2,3]));
+    </script>
+</body>
+</html>
