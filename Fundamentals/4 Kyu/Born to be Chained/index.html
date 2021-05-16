@@ -48,6 +48,9 @@
 
         c.sum(3, 4).execute(); //7
         c.sum(1, 2).execute(); //3
+
+
+
         Other examples:
 
         var c1 = c.sum(1, 2);
@@ -74,7 +77,23 @@
 
         function chain(fns) {
 
+            return {
+                sum(x, y) {
+                    return x + y;
+                }
+            }
         }
+
+        const c = {
+            sum(x, y) { return x + y },
+            double(x) { return c.sum(x, x) },
+            minus(x, y) { return x - y },
+            addOne(x) { return c.sum(x, 1) }
+        }
+
+        var c1 = c.sum(1, 2);
+
+        // console.log(sum(1,2).sum(3))
 
     </script>
 </body>
