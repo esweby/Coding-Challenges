@@ -23,7 +23,9 @@
         $ 1
      -->
     <script>
-        const lonelyNumber = (...args) => [...args]
+        const lonelyNumber = (...args) => [...args].filter((curr, i, arr) => {
+            
+        })
         console.log(lonelyNumber(1,2,3));
         console.log(lonelyNumber(6,6,4));
         console.log(lonelyNumber(7,7,7));
