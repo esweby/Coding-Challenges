@@ -23,9 +23,26 @@
         $ 1
      -->
     <script>
-        const lonelyNumber = (...args) => [...args].filter((curr, i, arr) => {
-            
-        })
+
+
+        const lonelyNumber = (...args) =>  
+                        [...args].every(evry => evry === [...args][0]) ? 
+                                1 : 
+                        [...args].reduce((arr, curr, i) => {
+                            if(arr.indexOf(curr) !== -1) {
+                                arr.splice(arr.indexOf(curr), 1);
+                                return arr
+                            };
+                            if(arr.indexOf(curr) === -1) {
+                                arr.push(curr);
+                                return arr;
+                            }
+                        }, [])
+                        .reduce((acc, curr) => acc + curr, 0);
+
+
+
+
         console.log(lonelyNumber(1,2,3));
         console.log(lonelyNumber(6,6,4));
         console.log(lonelyNumber(7,7,7));
