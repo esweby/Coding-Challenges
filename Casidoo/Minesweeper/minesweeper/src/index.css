@@ -1,0 +1,136 @@
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}
+.select {
+  margin: 0 10px 0 0;
+}
+
+.board {
+  margin: 0 auto;
+  border-top: 5px solid darkgrey;
+  border-bottom: 5px solid darkgrey;
+  border-left: 5px solid #708090;
+  border-right: 5px solid #708090;
+  background-color: #E5E4E2;
+  padding: 1px;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  margin: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 250ms;
+}
+
+.cell.undiscovered,
+.cell.flagged {
+  border-top: 3px solid darkgrey;
+  border-bottom: 3px solid darkgrey;
+  border-left: 3px solid #708090;
+  border-right: 3px solid #708090;
+  background-color: lightgrey;
+  transition: all ease 250ms;
+  font-weight: bold;
+  color: darkblue;
+}
+.cell.undiscovered span {
+  opacity: 0;
+  transition: all ease 250ms;
+}
+
+.cell.undiscovered:active {
+  border: 3px solid darkgrey;
+  background-color: #E5E4E2;
+}
+
+.cell.discovered {
+  border: 3px solid transparent;
+  background-color: #E5E4E2;
+}
+
+.cell.discovered span {
+  font-weight: bold;
+  transition: all ease 250ms;
+}
+
+
+/* Cells */
+.discovered-0 { opacity: 0 !important; }
+.discovered-1 { opacity: 1; color: blue; }
+.discovered-2 { opacity: 1; color: green; }
+.discovered-3 { opacity: 1; color: red; }
+.discovered-4 { opacity: 1; color: purple; }
+.discovered-5 { opacity: 1; color: black; }
+.discovered-6 { opacity: 1; color: brown; }
+.discovered-7 { opacity: 1; color: maroon; }
+.discovered-8 { opacity: 1; color: turquoise; }
+
+.boom { color: red; }
+
+
+/* Modals */
+.board {
+  position: relative;
+}
+
+.board.lost .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board.lost .banner {
+  background-color: #fff;
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+}
+
+.board.won .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-color: rgb(253,216,19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board.won .banner {
+  background-color: rgb(191,190,191);
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(29,48,95);
+  font-weight: bold;
+}
