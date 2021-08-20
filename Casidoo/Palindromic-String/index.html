@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!-- 
+      This week’s question:
+      Given a string s, return the longest palindromic substring in s.
+
+      Example:
+
+      $ pSubstring('babad')
+      $ 'bab' // or 'aba'
+
+
+    -->
+
+   <script>
+
+      const pSubstring = string => {
+         const arr = string.split('');
+         const results = [];
+         for(let i = 0; i < string.length; i++) {
+            for(let y = i; y < string.length; y++) {
+               let result = null;
+               if(y / 2 === 0 || y === 0) {
+
+               }
+               if(y / 2 === 1) {
+
+               }
+               if(result) results.push(result);
+            }
+            
+         }
+         return results;
+      }
+         
+
+      console.log(pSubstring('babad'));
+
+   </script>
+</body>
+</html>
