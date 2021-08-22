@@ -67,7 +67,7 @@
                     if(nextRes === 0) return results; // Check for result
 
                     results.unshift(currArrItem); // Push the item into the results array
-                    if(results[0] != validNum && results[0] > validNum) {
+                    if(results[0] !== validNum && results[0] > validNum) {
                         const testArr = traverse(validNum, nextRes, results);
                         if(testArr) return testArr;
                     }
