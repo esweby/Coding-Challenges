@@ -64,10 +64,9 @@
                     const NRSqrt = Math.sqrt(nextRes);
                     const NRSqrtValid = NRSqrt === Math.round(NRSqrt);
                     const validNum = NRSqrtValid ? NRSqrt : Math.floor(NRSqrt);
-
+                    if(nextRes === 0) return results; // Check for result
 
                     results.unshift(currArrItem); // Push the item into the results array
-                    if(nextRes === 0) return results; // Check for result
                     if(results[0] != validNum && results[0] > validNum) {
                         const testArr = traverse(validNum, nextRes, results);
                         if(testArr) return testArr;
