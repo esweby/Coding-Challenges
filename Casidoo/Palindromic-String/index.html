@@ -24,24 +24,35 @@
       const pSubstring = string => {
          const arr = string.split('');
          const results = [];
-         for(let i = 0; i < string.length; i++) {
-            for(let y = i; y < string.length; y++) {
+         for(let i = 0; i < arr.length; i++) {
+            for(let y = i + 1; y <= arr.length; y++) {
+               const subStr = arr.slice(i, y);
                let result = null;
-               if(y / 2 === 0 || y === 0) {
-
+               if(subStr.length % 2 === 0 &&
+                  subStr.slice(0, subStr.length / 2).join('') === 
+                  subStr.slice(subStr.length / 2, subStr.length).reverse().join('')) {
+                     result = `` + subStr.slice(0, subStr.length / 2).join('') + '' + 
+                     subStr.slice(subStr.length / 2, subStr.length).join('');
                }
-               if(y / 2 === 1) {
-
-               }
+               if(subStr.length % 2 === 1 && subStr.length > 1 &&
+                  subStr.slice(0, Math.floor(subStr.length / 2)).join('') === 
+                  subStr.slice(Math.ceil(subStr.length / 2), subStr.length).reverse().join('')) {
+                     result = '' + 
+                        subStr.slice(0, Math.floor(subStr.length / 2)).join('') + '' + 
+                        subStr.slice(Math.floor(subStr.length / 2), Math.floor(subStr.length / 2) + 1) + '' + 
+                        subStr.slice(Math.ceil(subStr.length / 2), subStr.length).join('');
+               }  
                if(result) results.push(result);
             }
             
          }
-         return results;
+         return results.sort((a, b) => b.length - a.length)[0];
       }
          
 
       console.log(pSubstring('babad'));
+      console.log(pSubstring('baabd'));
+      console.log(pSubstring('baabdbad'));
 
    </script>
 </body>
